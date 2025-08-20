@@ -142,7 +142,7 @@ func (h *Handler) Handle(ctx context.Context, req *middleware.Request) (*middlew
 	switch req.WireBody().(type) {
 	case *wire.OpMsg:
 		msgCmd := req.Document().Command()
-
+		fmt.Println("wire OpMsg, ", msgCmd)
 		cmd := h.commands[msgCmd]
 		if cmd == nil {
 			return nil, mongoerrors.New(
